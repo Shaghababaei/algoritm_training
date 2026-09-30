@@ -55,17 +55,18 @@ s consists of parentheses only '()[]{}'.
 #     return False
 
 def is_valid(value):
-    if len(value)%2==0 and value[0] != (')',']','}'):
+    if len(value)%2==0 and value[0] not in (')',']','}'):
         pairs = {'(': ')', '[': ']', '{': '}'}
         stack=[]
         boolian = False
-        for i in value:
-            stack.append(value(i))
-            if value[i] == (')',']','}') and value[i-1]== pairs[i]:
-               boolian==true
-               return True
+        for i , ch in enumerate(value):
+            if stack[i] == pairs.get(ch):
+               stack.pop(i)
+               return stack
+            else:
+                stack.append((i,ch))
     else:
         return False        
            
 
-print(is_valid(")("))
+print(is_valid("())("))
