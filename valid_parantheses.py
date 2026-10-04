@@ -60,12 +60,16 @@ def is_valid(value):
         stack=[]
         boolian = False
         for i , ch in enumerate(value):
-            if stack[i] == pairs.get(ch):
+            stack.append((i,ch))
+            if pairs.get(ch) in stack:
                stack.pop(i)
                return stack
+            elif pairs.get(ch) == stack[i]
             else:
-                stack.append((i,ch))
+                
+                return stack
     else:
+
         return False        
            
 

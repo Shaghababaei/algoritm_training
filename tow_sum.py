@@ -1,6 +1,4 @@
 
-
-
 def twoSum_bruteforce(nums,target):
     for x in range(len(nums)):
         for y in range(x+1,len(nums)):
