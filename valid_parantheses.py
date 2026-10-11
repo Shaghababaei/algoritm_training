@@ -42,35 +42,20 @@ s consists of parentheses only '()[]{}'.
 """
 
 
-# def is_valid(stringg:str):
-#     validator={}
-#     for i in stringg:
-#         if i not in validator:
-#             validator[i] = 1
-#         else : 
-#             validator[i] +=1
-
-#     if validator.get('(',0) == validator.get(')',0) and validator.get('{',0) == (validator.get('}',0)) and (validator.get('[',0) == validator.get(']',0)) :
-#         return True 
-#     return False
-
 def is_valid(value):
-    if len(value)%2==0 and value[0] not in (')',']','}'):
-        pairs = {'(': ')', '[': ']', '{': '}'}
         stack=[]
-        boolian = False
-        for i , ch in enumerate(value):
-            stack.append((i,ch))
-            if pairs.get(ch) in stack:
-               stack.pop(i)
-               return stack
-            elif pairs.get(ch) == stack[i]
-            else:
-                
-                return stack
-    else:
+        pairs={"(":")","[": "]","{":"}"}
+        for i in value:
+            stack.append(i)
+            print(stack)
+            if stack:    
+                if pairs[stack[-1]]==i:
+                    stack.pop()
 
-        return False        
-           
+        if len(stack)==0 :
+             return True
+        else : return False
+                     
+        
 
-print(is_valid("())("))
+print(is_valid(")"))
