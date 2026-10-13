@@ -46,16 +46,23 @@ def is_valid(value):
         stack=[]
         pairs={"(":")","[": "]","{":"}"}
         for i in value:
-            stack.append(i)
-            print(stack)
-            if stack:    
-                if pairs[stack[-1]]==i:
-                    stack.pop()
-
-        if len(stack)==0 :
-             return True
-        else : return False
+            if i in pairs:
+                    stack.append(i)
+            else:
+                if stack :  
+                    print(stack)  
+                    if pairs[stack[-1]]==i:
+                        stack.pop()
+                    else:
+                        return False
+                else: 
+                     return False
+        # if stack:
+        #     return False
+        # else:
+        #     return True  
+        return not stack        
                      
         
 
-print(is_valid(")"))
+print(is_valid("()[]{}"))
