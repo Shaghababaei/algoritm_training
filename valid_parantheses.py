@@ -41,27 +41,27 @@ Constraints:
 s consists of parentheses only '()[]{}'.
 """
 
-# simple 
-def is_valid(value):
-        stack=[]
-        pairs={"(":")","[": "]","{":"}"}
-        for i in value:
-            if i in pairs:
-                    stack.append(i)
-            else:
-                if stack :  
-                    print(stack)  
-                    if pairs[stack[-1]]==i:
-                        stack.pop()
-                    else:
-                        return False
-                else: 
-                     return False
-        # if stack:
-        #     return False
-        # else:
-        #     return True  
-        return not stack        
+# # simple 
+# def is_valid(value):
+#         stack=[]
+#         pairs={"(":")","[": "]","{":"}"}
+#         for i in value:
+#             if i in pairs:
+#                     stack.append(i)
+#             else:
+#                 if stack :  
+#                     print(stack)  
+#                     if pairs[stack[-1]]==i:
+#                         stack.pop()
+#                     else:
+#                         return False
+#                 else: 
+#                      return False
+#         # if stack:
+#         #     return False
+#         # else:
+#         #     return True  
+#         return not stack        
 
 
 # pro
@@ -73,11 +73,11 @@ def is_valid(value):
         for i in value:
                 if i not in pairs:
                     stack.append(i)
-                else :
-                    if not stack or stack.pop() != pairs[i]:
+                
+                elif not stack or stack.pop() != pairs[i]:
                         return False
         
         return not stack
         
 
-print(is_valid("(["))
+print(is_valid("([])"))
